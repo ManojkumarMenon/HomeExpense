@@ -1,0 +1,237 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+   <title>Well</title>
+   <link rel="icon" type="image/png" href="i/bg.png"/>
+   <style type="text/css">
+      body 
+      { 
+         margin:0;
+         padding:0;
+         text-align:center; 
+      }
+      #tudo 
+      {
+         width: TAMANHOpx;
+         margin:0;         
+         text-align:center;  
+      }
+      #conteudo 
+      {
+         padding: 0px;
+      }
+      #fundo{ background-image: url("i/fp.png");}
+   </style>
+   <style>
+      a{text-decoration:none}
+      a:hover{text-decoration:underline}
+      a{font-family: arial; font-size: 80% }
+   </style>
+   <Tipo link = "text / css" rel = "stylesheet"
+   href = "i/table-style.css? ln = css" />
+</h:head>
+<h:body>
+   <div id="tudo">
+       <div id="conteudo">
+          <h:form  id="pageForm" enctype="multipart/form-data">
+             <h:outputLabel id="lblMensagem"  value="#{controller.menAjax}" /> 
+             <table border="0" align="center" width ="100%" valign="top"> 
+                <tr width ="100" id="fundo"> 
+                   <th colspan= "1">
+                      <h:graphicImage value="i/wel.png"/>
+                   </th> 
+                </tr>
+                <tr width ="100" align="top"> 
+                    <th colspan= "1">
+                       <h:outputText value="&nbsp;" style="text-align:center; font-family: arial ; font-size: 13px; color: #EE7600;"/> 
+                       <h:messages globalOnly="true" style="text-align:left; font-family: arial ; font-size: 13px; color: red;"/>
+                       <table border="0" width="1200">  
+                          <h:inputHidden id="code"  value="#{controller.codWell}"/>
+                          <tr>
+                             <td align="right">
+                                <h:outputText value="Name: " style="text-align:center; font-family: arial ; font-size: 13px; color: #EE7600;"/>
+                             </td>
+                             <td align="left"> 
+                                <h:inputText size="30" maxlength="50" id="name" value="#{controller.nameWell}" 
+                                required = "true" requiredMessage="Name should be informed!" />
+                                &nbsp;&nbsp; 
+                                <h:message for="name" style="text-align:center; font-family: arial ; font-size: 13px; color: red"/>  
+                             </td>
+                          </tr>
+                          <tr>
+                             <td align="right">
+                                <h:outputText value="&nbsp;" style="text-align:center; font-family: arial ; font-size: 13px; color: #EE7600;"/>
+                             </td>
+                             <td> 
+                             </td>
+                          </tr>
+                          <tr>
+                             <td align="right">
+                                <h:outputText value="Block: " style="text-align:center; font-family: arial ; font-size: 13px; color: #EE7600;"/>
+                             </td>
+                             <td align="left"> 
+                                <h:selectOneMenu id="block" value="#{controller.codBlock}" required = "true" requiredMessage="Block should be informed!">
+                                <f:selectItem itemLabel="Select the block" noSelectionOption="true" />    
+                                <f:selectItems value="#{controller.comboBlocks}"
+                                var="item" itemLabel="#{item.nameBlock}"
+                                itemValue="#{item.codBlock}" />
+                                </h:selectOneMenu>  
+                                &nbsp;&nbsp;
+                                <h:message for="block" style="text-align:center; font-family: arial ; font-size:13px; color: red"/>  
+                             </td>
+                          </tr>
+                          <tr>
+                             <td align="right">
+                                <h:outputText value="&nbsp;" style="text-align:center; font-family: arial ; font-size: 13px; color: #EE7600;"/>
+                             </td>
+                             <td> 
+                             </td>
+                          </tr>
+                          <tr>
+                             <br>
+                             </br>     
+                             <td align="right">
+                                <h:outputText value="Operator Code: " style="text-align:center; font-family:arial ; font-size: 13px; color: #EE7600;"/>
+                             </td>
+                             <td align="left"> 
+                                <h:inputText size="30" maxlength="20" id="OperatorCode" value="#{controller.operatorCode}" 
+                                required = "true" requiredMessage="Operator Code should be informed!" />
+                                &nbsp;&nbsp; 
+                                <h:message for="OperatorCode" style="text-align:center; font-family: arial ; font-size: 13px; color: red"/>  
+                             </td>
+                          </tr>
+                          <tr>
+                             <td align="right">
+                                <h:outputText value="&nbsp;" style="text-align:center; font-family: arial ; font-size: 13px; color: #EE7600;"/>
+                             </td>
+                             <td> 
+                             </td>
+                          </tr>
+                          <tr>
+                             <br>
+                             </br>     
+                             <td align="right">
+                                <h:outputText value="ANP Code: " style="text-align:center; font-family: arial ; font-size: 13px; color: #EE7600;"/>
+                             </td>
+                             <td align="left"> 
+                                <h:inputText size="30" maxlength="20" id="anpCode" value="#{controller.anpCode}" 
+                                required = "true" requiredMessage="ANP Code should be informed!" />
+                                &nbsp;&nbsp; 
+                                <h:message for="anpCode" style="text-align:center; font-family: arial ; font-size: 13px; color: red"/>  
+                             </td>
+                          </tr> 
+                          <tr>
+                             <td>
+                             </td>
+                             <td> 
+                                <h:outputText value="&nbsp;" style="text-align:center; font-family: arial ; font-size: 13px; color: #EE7600;"/>  
+                             </td>
+                          </tr> 
+                          <tr>
+                             <td>
+                             </td>
+                             <td> 
+                                <h:commandButton id="Save" image="i/sa.bmp" action="#{controller.saveWell()}" value="Save"/>
+                             </td>
+                          </tr>
+                          <tr>
+                             <td width="200">
+                             </td>
+                             <td valign="top">     
+                                <h:outputText value="&nbsp;" style="text-align:center; font-family: arial ; font-size: 13px; color: #EE7600;"/>   
+                                <p:dataTable scrollable="true" scrollHeight="210"
+                                   id ="t1"   
+                                   value="#{controller.allWells}"
+                                   var="item"  
+                                   style="text-align:center; font-family: arial ; font-size: 10; 
+                                   border-collapse: collapse; border-color: #D3D3D3">
+                                   <p:column style="width:130px">
+                                      <f:facet name="header" >
+                                         <p:column>
+                                            <h:outputText value="Name" style="font-family: arial ; font-size: 15PX; color: #828282"/>  
+                                         </p:column>
+                                      </f:facet>   
+                                      <h:outputText value=" #{item.nameWell}"  style="font-family: arial ; font-size: 15PX; font-weight:bold; color: #483D8B "/>
+                                      <br style="clear: left;" />  
+                                   </p:column>
+                                   <p:column style="width:90px">
+                                      <f:facet name="header" >
+                                         <p:column>
+                                            <h:outputText value="Block" style="font-family: arial ; font-size: 15PX; color: #828282"/>  
+                                         </p:column>
+                                      </f:facet>   
+                                       <h:outputText value=" #{item.block.nameBlock}"  style="font-family: arial ; font-size: 15PX; font-weight:bold; color: #483D8B "/>
+                                      <br style="clear: left;" />  
+                                   </p:column>
+                                   <p:column style="width:90px">
+                                      <f:facet name="header" >
+                                         <p:column>
+                                            <h:outputText value="Operator Code" style="font-family: arial ; font-size: 15PX; color: #828282"/>  
+                                         </p:column>
+                                      </f:facet>   
+                                      <h:outputText value=" #{item.operatorCode}"  style="font-family: arial ; font-size: 15PX; font-weight:bold; color: #483D8B "/>
+                                      <br style="clear: left;" />  
+                                   </p:column>     
+                                   <p:column style="width:90px">
+                                      <f:facet name="header" >
+                                         <p:column>
+                                            <h:outputText value="ANP Code" style="font-family: arial ; font-size: 15PX; color: #828282"/>  
+                                         </p:column>
+                                      </f:facet>   
+                                      <h:outputText value=" #{item.anpCode}"  style="font-family: arial ; font-size: 15PX; font-weight:bold; color: #483D8B "/>
+                                      <br style="clear: left;" />  
+                                   </p:column>        
+                                   <p:column style="width:70px">
+                                      <f:facet name="header">
+                                      </f:facet>
+                                      <h:commandButton id="edi"  image="i/ed.bmp" 
+                                         action="#{controller.editWell(item)}">
+                                         <f:setPropertyActionListener target="#{lblMensagem}" value="Conv"/>      
+                                         <f:ajax render= ":pageForm"/>
+                                      </h:commandButton>
+                                   </p:column> 
+                                   <p:column style="width:70px">
+                                      <f:facet name="header">
+                                      </f:facet>
+                                      <h:commandButton id="exc" image="i/de.bmp" 
+                                         action="#{controller.deleteWell(item)}">
+                                         <f:setPropertyActionListener target="#{lblMensagem}" value="excon"/>     
+                                         <f:ajax render= ":pageForm"/>
+                                      </h:commandButton>
+                                   </p:column>
+                                </p:dataTable> 
+                                <br>
+                                </br>
+                            </td>
+                          </tr> 
+                          <tr align="center">
+                             <td>
+                             </td>
+                             <td> 
+                                 <h:commandButton id="close"  image="i/cl.bmp" action="#{controllerSession.callTracking}" value="close" immediate="true"/>
+                             </td>
+                          </tr>
+                       </table>     
+                    </th> 
+                 </tr>
+              </table>  
+           </h:form>
+       </div>
+   </div>
+   <script language="JavaScript">
+      if (screen.width == 1024){
+        TAMANHO = 850;
+      }
+      if (screen.width == 1152){
+        TAMANHO = 1007;
+      }
+      if (screen.width == 1366){
+        TAMANHO = 1250;
+      }
+   </script>
+</h:body>
+</html>

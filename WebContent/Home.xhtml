@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<style type="text/css">
+body {
+	background-color: olive;
+}
+
+#form {
+	text-align: center;
+}
+
+#table {
+	border: medium;
+	size: 10px;
+	background: white;
+	width: 300px;
+	height: 100px;
+	font-style: italic;
+}
+
+#form\:message1 {
+	font-size: xx-large;
+	color: black;
+	text-align: left;
+}
+</style>
+</h:head>
+<h:body>
+	<h:form id="form">
+	<h:outputLabel id="message0">Add Item page</h:outputLabel>
+		<br></br>
+		<br></br>
+		<h:outputLabel id="message1">Welcome :- <h:outputLabel
+				id="message2" style="color:Blue ;font-size:xx-large;"> #{loginBean.username}</h:outputLabel>
+		</h:outputLabel>
+		<br></br>
+		<br></br>
+		<br></br>
+		<br></br>
+
+		<h:outputText id="message3" style="color:gray ;">What do you want to do Next?</h:outputText>
+		<br></br>
+		<br></br>
+		<p></p>
+		<h:commandButton type="submit"
+			action="#{applicationController.addItemsPage()}" id="Item_Page"
+			value="Add Item Page" style="size:20px;"></h:commandButton>
+		<br></br>
+		<p></p>
+		<h:commandButton type="submit"
+			action="#{applicationController.viewBalancePage()}" id="Balance_Page"
+			value="Balance Page" style="size:20px;"></h:commandButton>
+	</h:form>
+</h:body>
+</html>

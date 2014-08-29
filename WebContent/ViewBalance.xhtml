@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+<h:head>
+	<style type="text/css">
+body {
+	background-color: olive;
+}
+
+#form {
+	text-align: center;
+}
+
+#table {
+	border: medium;
+	size: 10px;
+	background: white;
+	width: 300px;
+	height: 100px;
+	font-style: italic;
+}
+
+#form\:message1,#form\:message0 {
+	font-size: xx-large;
+	color: black;
+	text-align: left;
+}
+</style>
+</h:head>
+<h:body>
+	<h:form id="form">
+		<h:outputLabel id="message0">View Balance Page</h:outputLabel>
+		<br></br>
+		<br></br>
+		<h:outputLabel id="message1">Welcome :- <h:outputLabel
+				id="message2" style="color:Blue ;font-size:xx-large;"> #{loginBean.username}</h:outputLabel>
+		</h:outputLabel>
+		<br></br>
+		<br></br>
+		<h:dataTable value="#{applicationController.generateTable()}"
+			var="table"
+			style="text-align:center; font-family: arial ; font-size: 10; 
+                                   border-collapse: collapse; border-color: #D3D3D3; border-spacing:5px; background: white; border: 5px;
+	width: 400px;">
+			<h:column>
+				<f:facet name="header">
+					<h:column>
+						<h:outputText value="Username"></h:outputText>
+					</h:column>
+				</f:facet>
+				<h:outputText value="#{table.username}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:column>
+						<h:outputText value="ItemName"></h:outputText>
+					</h:column>
+				</f:facet>
+				<h:outputText value="#{table.itemname}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:column>
+						<h:outputText value="ItemPrice"></h:outputText>
+					</h:column>
+				</f:facet>
+				<h:outputText value="#{table.price}"></h:outputText>
+			</h:column>
+		</h:dataTable>
+		<br></br>
+		<br></br>
+		<h:outputText
+			style="font-family: arial ; font-size: 10; text-align:center;"
+			value="The total amount is :-  #{applicationController.totalAmt}"></h:outputText>
+		<br></br>
+		<br></br>
+		<h:outputText
+			style="font-family: arial ; font-size: 10; text-align:center;"
+			value="The individual amount is :-  #{applicationController.individualAmt}"></h:outputText>
+
+		<br></br>
+		<br></br>
+		<h:dataTable
+			value="#{applicationController.userPaymentDetailsTable()}"
+			var="paymentDetails"
+			style="text-align:center; font-family: arial ; font-size: 10; 
+                                   border-collapse: collapse; border-color: #D3D3D3 ;border-spacing:5px; background: white; border: 5px; width: 400px;">
+			<h:column>
+				<f:facet name="header">
+					<h:column>
+						<h:outputText value="Receiver"></h:outputText>
+					</h:column>
+				</f:facet>
+				<h:outputText value="#{paymentDetails.userReceiver}"></h:outputText>
+
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:column>
+						<h:outputText value="Payer"></h:outputText>
+					</h:column>
+				</f:facet>
+				<h:outputText value="#{paymentDetails.userPayer}"></h:outputText>
+
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:column>
+						<h:outputText value="Amount"></h:outputText>
+					</h:column>
+				</f:facet>
+				<h:outputText value="#{paymentDetails.amount}"></h:outputText>
+
+			</h:column>
+		</h:dataTable>
+		<br></br>
+
+	</h:form>
+</h:body>
+</html>

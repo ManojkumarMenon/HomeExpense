@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<style type="text/css">
+			body {
+				background-color: olive;
+			}
+			#form{
+			text-align: center;
+			
+			}
+			#table {
+				border: medium;
+				size: 10px;
+				background: white;
+				width: 300px;
+				height: 100px;
+				font-style: italic;
+			}
+	</style>
+</h:head>
+<h:body>
+
+	<h:form id="form">
+	<br></br><br></br><br></br><br></br><br></br>
+		<table id="table" align="center">
+
+			<tr>
+				<td><h:outputLabel value="Enter the username"></h:outputLabel>
+				</td>
+				<td><h:inputText id="username" value="#{loginBean.username}"></h:inputText>
+				</td>
+
+			</tr>
+			<tr>
+				<td><h:outputLabel value="Enter the password"></h:outputLabel>
+				</td>
+				<td><h:inputSecret id="password" value="#{loginBean.password}"></h:inputSecret>
+				</td>
+
+			</tr>
+			<tr>
+				<td></td>
+				<td><h:commandButton id="submit" value="Enter"
+						action="#{applicationController.submit()}"></h:commandButton></td>
+			</tr>
+
+		</table>
+	</h:form>
+
+</h:body>
+</html>

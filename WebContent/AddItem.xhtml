@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<style type="text/css">
+body {
+	background-color: olive;
+}
+
+#form {
+	text-align: center;
+}
+
+#table {
+	border: medium;
+	size: 10px;
+	background: white;
+	width: 300px;
+	height: 100px;
+	font-style: italic;
+}
+
+#form\:message1,#form\:message0 {
+	font-size: xx-large;
+	color: black;
+	text-align: left;
+}
+</style>
+</h:head>
+<h:body>
+	<h:form id="form">
+		<h:outputLabel id="message0">Add Item page</h:outputLabel>
+		<br></br>
+		<br></br>
+		<h:outputLabel id="message1">Welcome :- <h:outputLabel
+				id="message2" style="color:Blue ;font-size:xx-large;"> #{loginBean.username}</h:outputLabel>
+		</h:outputLabel>
+		<br></br>
+		<br></br>
+		<table align="center" border="5px" width="400px" bgcolor="white">
+
+			<tr>
+				<td><h:outputLabel id="Users" style="text-align:left;">Enter the payee name</h:outputLabel>
+				</td>
+				<td width="100px"><h:selectOneMenu style="width:100px" id="user" value="#{addItems.userid}">
+						<f:selectItem itemLabel="Enter a value" itemValue="0"></f:selectItem>
+						<f:selectItems value="#{applicationController.users()}"
+							var="usernames" itemLabel="#{usernames.username}"
+							itemValue="#{usernames.userId}"></f:selectItems>
+					</h:selectOneMenu></td>
+
+			</tr>
+			<tr>
+				<td><h:outputLabel id="ItemName" style="text-align:left;">Enter the item name</h:outputLabel>
+				</td>
+				<td><h:inputText id="item" value="#{addItems.itemName}"></h:inputText>
+				</td>
+			</tr>
+			<tr>
+				<td><h:outputLabel id="ItemPrice" style="text-align:left;">Enter the item price</h:outputLabel>
+				</td>
+				<td><h:inputText id="price" value="#{addItems.itemPrice}"></h:inputText>
+
+				</td>
+			</tr>
+			<tr>
+				<td><h:commandButton id="AddItem" type="submit"
+						value="Add Item" action="#{applicationController.addItems()}"></h:commandButton>
+				</td>
+				<td><h:commandButton id="HomePage" type="submit"
+						value="HomePage" action="#{applicationController.homepage()}"></h:commandButton>
+				</td>
+			</tr>
+		</table>
+	</h:form>
+</h:body>
+</html>
